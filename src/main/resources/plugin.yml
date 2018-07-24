@@ -1,0 +1,7 @@
+name: Teb
+version: ${project.version}
+main: de.phyrone.teb.Teb
+prefix: TEB
+authors: [Phyrone]
+website: https://www.phyrone.de/
+softdepen: [PlaceholderAPI]
