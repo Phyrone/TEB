@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Phyrone/TEB.svg?branch=master)](https://travis-ci.org/Phyrone/TEB) [![Build Status](https://ci.phyrone.de/buildStatus/icon?job=TEB/master)](https://ci.phyrone.de/job/TEB/job/master/)
+[![](https://jitpack.io/v/Phyrone/TEB.svg)](https://jitpack.io/#Phyrone/TEB) [![Build Status](https://travis-ci.org/Phyrone/TEB.svg?branch=master)](https://travis-ci.org/Phyrone/TEB) [![Build Status](https://ci.phyrone.de/buildStatus/icon?job=TEB/master)](https://ci.phyrone.de/job/TEB/job/master/)
 # TEB
 Teb ist ein permissionbasiertes Tablistplugin für Bukkit.
 [Download](https://ci.phyrone.de/job/TEB/job/master/)
