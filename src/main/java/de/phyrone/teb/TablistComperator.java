@@ -4,7 +4,6 @@ package de.phyrone.teb;
  *   Creation: 15.07.2018 by Phyrone
  */
 
-import de.phyrone.teb.Teb;
 import org.bukkit.entity.Player;
 
 public interface TablistComperator {

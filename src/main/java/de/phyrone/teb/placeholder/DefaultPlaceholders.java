@@ -12,7 +12,7 @@ public enum DefaultPlaceholders {
     }),
     REALNAME((player, args) -> {
         return player.getName();
-    }),LOCALE((player, args) -> {
+    }), LOCALE((player, args) -> {
         return player.getLocale();
     }),
     UUID((player, args) -> {
@@ -21,7 +21,7 @@ public enum DefaultPlaceholders {
     LEVEL((player, args) -> {
         return String.valueOf(player.getLevel());
     });
-    Placeholder placeholder;
+    final Placeholder placeholder;
 
     DefaultPlaceholders(Placeholder placeholder) {
         this.placeholder = placeholder;

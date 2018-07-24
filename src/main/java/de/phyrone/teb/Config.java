@@ -23,14 +23,14 @@ public class Config {
 
     }
 
-    public static Config getInstance() {
+    static Config getInstance() {
         if (instance == null) {
             instance = fromDefaults();
         }
         return instance;
     }
 
-    public static void load() {
+    static void load() {
         instance = fromFile();
 
         // no config file found
@@ -65,7 +65,7 @@ public class Config {
         this.setTablistDelay = setTablistDelay;
     }
 
-    public boolean isDebug() {
+    boolean isDebug() {
         return debug;
     }
 
@@ -73,13 +73,13 @@ public class Config {
         this.debug = debug;
     }
 
-    public List<TablistViewGroup> getTablists() {
+    List<TablistViewGroup> getTablists() {
         return tablists == null ? new ArrayList<>(
                 Collections.singletonList(new TablistViewGroup())
         ) : tablists;
     }
 
-    public void toFile() {
+    void toFile() {
         String jsonConfig = StringEscapeUtils.unescapeJava(GSON_BUILDER.create().toJson(this));
         FileWriter writer;
         try {
@@ -100,11 +100,6 @@ public class Config {
     static class TablistViewGroup {
         int updateTime = 20;
         int animationDelay = 20 * 5;
-
-        public int getAnimationDelay() {
-            return animationDelay;
-        }
-
         String permission;
         List<TablistGroup> groups = new ArrayList<>(Arrays.asList(
                 new TablistGroup("Admin", ChatColor.DARK_RED),
@@ -118,23 +113,27 @@ public class Config {
                 "YouFirst"
         ));
 
-        public TablistViewGroup(String name) {
+        TablistViewGroup(String name) {
             permission = ("tablist.view." + name).toLowerCase();
         }
 
-        public TablistViewGroup() {
+        TablistViewGroup() {
             permission = null;
         }
 
-        public int getUpdateTime() {
+        int getAnimationDelay() {
+            return animationDelay;
+        }
+
+        int getUpdateTime() {
             return updateTime;
         }
 
-        public List<TablistGroup> getGroups() {
+        List<TablistGroup> getGroups() {
             return groups;
         }
 
-        public String getPermission() {
+        String getPermission() {
             return permission;
         }
     }
@@ -145,22 +144,22 @@ public class Config {
         List<String> prefix = new ArrayList<>(Collections.singletonList(""));
         List<String> suffix = new ArrayList<>(Collections.singletonList(""));
 
-        public TablistGroup() {
+        TablistGroup() {
 
         }
 
 
-        public TablistGroup(String name, ChatColor color) {
+        TablistGroup(String name, ChatColor color) {
 
             prefix = new ArrayList<>(Collections.singletonList(color + name + " "));
             permmision = ("tablist." + name).toLowerCase();
         }
 
-        public List<String> getPrefix() {
+        List<String> getPrefix() {
             return prefix == null ? new ArrayList<>() : prefix;
         }
 
-        public List<String> getSuffix() {
+        List<String> getSuffix() {
             return suffix == null ? new ArrayList<>() : suffix;
         }
 

@@ -4,7 +4,6 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import de.phyrone.teb.bstats.Metrics;
 import de.phyrone.teb.placeholder.DefaultPlaceholders;
 import de.phyrone.teb.sorts.PlayerGroupSort;
 import de.phyrone.teb.sorts.PlayerNameSort;
@@ -12,6 +11,7 @@ import de.phyrone.teb.sorts.ReversedComparator;
 import de.phyrone.teb.sorts.ViewerFistSort;
 import me.clip.placeholderapi.PlaceholderAPI;
 import me.clip.placeholderapi.PlaceholderAPIPlugin;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -263,7 +263,7 @@ public final class Teb extends JavaPlugin implements Listener {
     }
 
     private interface SubHandler<T> {
-        public T getSub(Player player);
+        T getSub(Player player);
 
         void removeSub(Player player);
     }
@@ -509,7 +509,7 @@ public final class Teb extends JavaPlugin implements Listener {
                             Strings.repeat("0", getZeros() - sortZeros >= 0 ? getZeros() - sortZeros : 0)
                                     + String.valueOf(sort)
                                     + TEAMSUFFIX, 32));
-                    team.addPlayer(player);
+                    team.addEntry(player.getName());
                     prefixes = getPrefix(player);
                     prefixes = prefixes.isEmpty() ? new ArrayList<>(Collections.singletonList("")) : prefixes;
                     prefixIterator = prefixes.iterator();
@@ -521,7 +521,7 @@ public final class Teb extends JavaPlugin implements Listener {
 
                 }
 
-                public void nextAnimation() {
+                void nextAnimation() {
                     /* Prefix */
                     if (!prefixIterator.hasNext()) {
                         prefixIterator = prefixes.iterator();

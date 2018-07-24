@@ -9,13 +9,13 @@ import de.phyrone.teb.TablistComperator;
 import org.bukkit.entity.Player;
 
 public class PlayerGroupSort implements TablistComperator {
-    boolean debug;
+    final private boolean debug;
 
     public PlayerGroupSort(boolean debug) {
         this.debug = debug;
     }
 
-    public boolean isDebug() {
+    private boolean isDebug() {
         return debug;
     }
 

@@ -8,7 +8,7 @@ import de.phyrone.teb.TablistComperator;
 import org.bukkit.entity.Player;
 
 public class ReversedComparator implements TablistComperator {
-    private TablistComperator comparator;
+    private final TablistComperator comparator;
 
     public ReversedComparator(TablistComperator comparator) {
         this.comparator = comparator;
