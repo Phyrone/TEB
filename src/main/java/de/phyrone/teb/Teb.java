@@ -29,7 +29,10 @@ import org.bukkit.scoreboard.Team;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -40,7 +43,8 @@ public final class Teb extends JavaPlugin implements Listener {
     private static final Pattern TARGET_PLACEHOLDER_PATTERN = Pattern.compile("[{](?i)target ([^{}]+)[}]");
     private static final String TEAMSUFFIX = "-TEB";
     private static final Pattern PLACEHOLDER_PATTERN = Pattern.compile("[%]([^%]+)[%]");
-    private final ThreadFactory UPDATE_TABLIST_THREAD_FACTORY = new ThreadFactoryBuilder().setNameFormat("UpdateTablistTask-").build();
+    private final ThreadFactory THREADPOOLFACTORY = new ThreadFactoryBuilder().setNameFormat("UpdateTablistWorker[%d]").build();
+    private ThreadPoolExecutor executor = new ThreadPoolExecutor(1,Runtime.getRuntime().availableProcessors()*2,10L, TimeUnit.SECONDS,new SynchronousQueue<>(),THREADPOOLFACTORY);
     private boolean debug = true;
     private List<Tablist> tablists = new ArrayList<>();
     private HashMap<String, TablistComperator> tablistComparators = new HashMap<>();
@@ -436,7 +440,7 @@ public final class Teb extends JavaPlugin implements Listener {
             }
 
             void reListPlayers() {
-                UPDATE_TABLIST_THREAD_FACTORY.newThread(() -> {
+                executor.submit(() -> {
                     synchronized (relistSyncer) {
                         clear();
                         int i = 0;
@@ -450,7 +454,7 @@ public final class Teb extends JavaPlugin implements Listener {
                             i++;
                         }
                     }
-                }).start();
+                });
 
             }
 
