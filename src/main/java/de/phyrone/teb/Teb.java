@@ -44,7 +44,7 @@ public final class Teb extends JavaPlugin implements Listener {
     private static final String TEAMSUFFIX = "-TEB";
     private static final Pattern PLACEHOLDER_PATTERN = Pattern.compile("[%]([^%]+)[%]");
     private final ThreadFactory THREADPOOLFACTORY = new ThreadFactoryBuilder().setNameFormat("UpdateTablistWorker[%d]").build();
-    private ThreadPoolExecutor executor = new ThreadPoolExecutor(1,Runtime.getRuntime().availableProcessors()*2,10L, TimeUnit.SECONDS,new SynchronousQueue<>(),THREADPOOLFACTORY);
+    private ThreadPoolExecutor executor = new ThreadPoolExecutor(1, Runtime.getRuntime().availableProcessors() * 2, 10L, TimeUnit.SECONDS, new SynchronousQueue<>(), THREADPOOLFACTORY);
     private boolean debug = true;
     private List<Tablist> tablists = new ArrayList<>();
     private HashMap<String, TablistComperator> tablistComparators = new HashMap<>();
@@ -145,7 +145,12 @@ public final class Teb extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
+        executor.shutdown();
+        try {
+            executor.awaitTermination(10, TimeUnit.SECONDS);
+        } catch (InterruptedException ignored) {
 
+        }
     }
 
     @EventHandler(priority = EventPriority.LOW)
