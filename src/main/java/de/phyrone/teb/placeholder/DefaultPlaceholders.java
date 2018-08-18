@@ -1,8 +1,8 @@
-package de.phyrone.teb.placeholder;
 /*
- *   Copyright © 2018 by Phyrone  *
- *   Creation: 16.07.2018 by Phyrone
+ * Copyright © Phyrone 2018
  */
+
+package de.phyrone.teb.placeholder;
 
 import de.phyrone.teb.Placeholder;
 

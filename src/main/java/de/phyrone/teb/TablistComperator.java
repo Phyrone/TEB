@@ -1,8 +1,8 @@
-package de.phyrone.teb;
 /*
- *   Copyright © 2018 by Phyrone  *
- *   Creation: 15.07.2018 by Phyrone
+ * Copyright © Phyrone 2018
  */
+
+package de.phyrone.teb;
 
 import org.bukkit.entity.Player;
 
