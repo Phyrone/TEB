@@ -1,8 +1,8 @@
-package de.phyrone.teb.sorts;
 /*
- *   Copyright © 2018 by Phyrone  *
- *   Creation: 15.07.2018 by Phyrone
+ * Copyright © Phyrone 2018
  */
+
+package de.phyrone.teb.sorts;
 
 import de.phyrone.teb.Config;
 import de.phyrone.teb.TablistComperator;

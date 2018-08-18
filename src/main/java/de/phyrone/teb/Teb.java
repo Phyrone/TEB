@@ -1,3 +1,7 @@
+/*
+ * Copyright © Phyrone 2018
+ */
+
 package de.phyrone.teb;
 
 import com.google.common.base.Strings;
