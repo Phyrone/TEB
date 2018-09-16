@@ -21,10 +21,15 @@ public class Config {
     boolean disableJoinLeaveMSG = false;
     private boolean debug = false;
     private int setTablistDelay = -1;
+    private int threadpoolMaxSize = 1;
     private List<TablistViewGroup> tablists = new ArrayList<>(Collections.singletonList(new TablistViewGroup("default")));
 
     private Config() {
 
+    }
+
+    public int getThreadpoolMaxSize() {
+        return threadpoolMaxSize;
     }
 
     static Config getInstance() {
