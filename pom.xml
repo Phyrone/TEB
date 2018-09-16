@@ -6,7 +6,7 @@
 
     <groupId>de.phyrone</groupId>
     <artifactId>Teb</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>ALPHA-1.1</version>
     <packaging>jar</packaging>
 
     <name>Teb</name>
