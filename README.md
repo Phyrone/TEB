@@ -6,11 +6,11 @@ Teb ist ein permissionbasiertes Tablistplugin für Bukkit.
 - Sortirung pro Spieler
 - Sortirung Nach Parameter (z.b. YouFirst,PermissionGroups)
 - Prefix und Suffix mit Placeholder (+PlaceholderAPI support)
+- Animierter Prefix
 ## TODO
 - Tablist Header/Footer
 - Reload Command
 - Ingame GUI
 - Tablist Prefix/Suffix Unabhangig von Prefix/Suffix über dem Name
 - Text Unter Spielername
-- Animierter Prefix
 - Mehr TPS (sehr Wichtig)
